@@ -82,7 +82,7 @@ spring.thymeleaf.cache=false
 
 ### 4. Run the App
 
-1. Open project in IntelliJ IDEA
+1. Open the project in IntelliJ IDEA
 2. Run: **LeaveServiceHrmApplication.java**
 3. Open in web browser
 
