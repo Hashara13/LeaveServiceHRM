@@ -10,7 +10,6 @@
         .sidebar a:hover{background:#1a202c;color:#fff;}
         .sidebar .active{background:#1a202c;color:#fff;}
         .main{margin-left:250px;padding:30px;width:100%;box-sizing:border-box;}
-        h2{font-size:26px;color:#2d3748;margin-bottom:20px;}
 
         .header-bar {
             display: flex;
@@ -29,6 +28,21 @@
             box-shadow:0 2px 6px rgba(45,108,223,0.3);
         }
         .apply-btn:hover{background:#1e4ead;}
+
+        /* Beautiful Date & Time Card - same as admin page */
+        .datetime-card{
+            background:#fff;
+            padding:16px 24px;
+            border-radius:12px;
+            box-shadow:0 3px 10px rgba(0,0,0,0.08);
+            margin-bottom:25px;
+            display:inline-block;
+            font-size:15px;
+            color:#2d3748;
+            border-left:5px solid #2d6cdf;
+        }
+        .datetime-card .date{font-size:20px;font-weight:bold;margin-bottom:4px;}
+        .datetime-card .time{font-size:24px;font-weight:300;letter-spacing:1px;color:#2d6cdf;}
 
         table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
         th{background:#2d3748;color:#fff;padding:16px;font-size:15px;text-align:left;}
@@ -49,10 +63,16 @@
     <a href="/admin/leaves">All Requests</a>
     <a href="/logout" style="margin-top:40px;">Logout</a>
 </div>
+
 <div class="main">
     <div class="header-bar">
         <h2>My Leaves <span th:text="${username}"></span></h2>
         <a href="/employee/apply" class="apply-btn">+ Leave</a>
+    </div>
+
+    <div class="datetime-card">
+        <div class="date" id="currentDate"></div>
+        <div class="time" id="currentTime"></div>
     </div>
 
     <table>
@@ -75,5 +95,19 @@
         </tr>
     </table>
 </div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const dateStr = now.toLocaleDateString(undefined, optionsDate);
+        const timeStr = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+
+        document.getElementById('currentDate').textContent = dateStr;
+        document.getElementById('currentTime').textContent = timeStr;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
 </body>
 </html>
