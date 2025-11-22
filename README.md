@@ -1,5 +1,4 @@
-
-# LeaveServiceHRM
+# LeaveServiceHRM  
 **A Simple Employee Leave Management System**  
 Built with Spring Boot, MySQL, Thymeleaf & Lombok
 
@@ -12,14 +11,13 @@ Built with Spring Boot, MySQL, Thymeleaf & Lombok
 ## Features
 
 ### Employee Can:
-- Apply for leave
-- View their own leave history
-- Edit or delete **pending** leaves
+- Apply for leave  
+- View their own leave history  
+- Edit or delete **pending** leaves  
 
 ### Admin Can:
-- View all leave requests
-- Approve or Reject pending leaves
-
+- View all leave requests  
+- Approve or Reject pending leaves  
 
 ## Tech Stack
 
@@ -54,12 +52,12 @@ LeaveServiceHRM/
 └── pom.xml
 ```
 
-## How to Run
+## How to Run (Step-by-Step)
 
 ### 1. Install Requirements
-- Java 17+
-- MySQL 8+
-- IntelliJ IDEA
+- Java 17+  
+- MySQL 8+  
+- IntelliJ IDEA  
 
 ### 2. Create Database
 
@@ -67,13 +65,13 @@ LeaveServiceHRM/
 CREATE DATABASE leavedb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 ```
 
-### 3. Configure Application Properties
+### 3. Configure Application Properties  
 Edit: `src/main/resources/application.properties`
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/leavedb
 spring.datasource.username=root
-spring.datasource.password=YOUR_MYSQL_PASSWORD
+spring.datasource.password=YOUR_PASSWORD
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
@@ -82,14 +80,13 @@ spring.thymeleaf.cache=false
 
 ### 4. Run the App
 
-1. Open the project in IntelliJ IDEA
-2. Run: **LeaveServiceHrmApplication.java**
-3. Open in web browser
+1. Open project in IntelliJ IDEA  
+2. Run: **LeaveServiceHrmApplication.java**  
+3. Open in browser:
 
 ```
 http://localhost:8080
 ```
 
-## Ready to Use
+## Ready to Use  
 Employees can apply leave, and Admin can approve or reject.
-
