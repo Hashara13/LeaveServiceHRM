@@ -1,4 +1,3 @@
-
 # LeaveServiceHRM  
 **A Simple Employee Leave Management System**  
 Built with Spring Boot, MySQL, Thymeleaf & Lombok
@@ -9,22 +8,18 @@ Built with Spring Boot, MySQL, Thymeleaf & Lombok
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-3.x-green.svg?style=flat)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## ✨ Features
+## Features
 
-### 👨‍💼 Employee Can:
+### Employee Can:
 - Apply for leave  
 - View their own leave history  
 - Edit or delete **pending** leaves  
 
-### 🛡️ Admin Can:
+### Admin Can:
 - View all leave requests  
 - Approve or Reject pending leaves  
 
-### 🔐 Simple Login (no authentication needed)
-- Employee: Any username (e.g., `john`, `raj`, `emp1`)  
-- Admin: Username must be **`admin`**
-
-## 🧰 Tech Stack
+## Tech Stack
 
 | Layer        | Technology |
 |--------------|------------|
@@ -33,7 +28,7 @@ Built with Spring Boot, MySQL, Thymeleaf & Lombok
 | Database     | MySQL |
 | Dependencies | Spring Web, JPA, Lombok, MySQL Driver, DevTools |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 LeaveServiceHRM/
@@ -57,7 +52,7 @@ LeaveServiceHRM/
 └── pom.xml
 ```
 
-## 🚀 How to Run (Step-by-Step)
+## How to Run (Step-by-Step)
 
 ### 1. Install Requirements
 - Java 17+  
@@ -93,8 +88,5 @@ spring.thymeleaf.cache=false
 http://localhost:8080
 ```
 
-## 🎉 Ready to Use  
+## Ready to Use  
 Employees can apply leave, and Admin can approve or reject.
-
-## 📜 License  
-MIT License — Free to use, modify & learn.
