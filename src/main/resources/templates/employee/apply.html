@@ -3,29 +3,35 @@
 <head>
     <title>Apply Leave</title>
     <style>
-        body {font-family: 'Segoe UI', Arial, sans-serif; background: #f8fafc; margin: 0; padding: 30px; color: #1e293b;}
-        .container {max-width: 600px; margin: 0 auto;}
-        h2 {font-size: 28px; font-weight: 600; margin-bottom: 10px; color: #1e293b;}
-        .nav-links {margin-bottom: 25px; font-size: 15px;}
-        .nav-links a {color: #6366f1; text-decoration: none; font-weight: 500; margin-right: 20px;}
-        .nav-links a:hover {text-decoration: underline;}
-        .card {background: #ffffff; padding: 35px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 1px solid #e2e8f0;}
-        label {display: block; margin-bottom: 8px; font-weight: 500; font-size: 15px; color: #374151;}
-        input, textarea {width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #cbd5e1; font-size: 15px; margin-bottom: 20px; box-sizing: border-box;}
-        input:focus, textarea:focus {outline: none; border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99,102,241,0.15);}
-        textarea {height: 120px; resize: none;}
-        button {width: 100%; padding: 14px; background: #6366f1; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s;}
-        button:hover {background: #4f46e5;}
+        body{font-family:Arial;background:#eef1f6;margin:0;display:flex;}
+        .sidebar{width:250px;background:#2d3748;color:#fff;height:100vh;position:fixed;padding:20px 0;}
+        .sidebar h3{padding:0 20px;font-size:20px;margin:20px 0;}
+        .sidebar a{display:block;padding:12px 20px;color:#cbd5e0;text-decoration:none;font-size:15px;}
+        .sidebar a:hover{background:#1a202c;color:#fff;}
+        .sidebar .active{background:#1a202c;color:#fff;}
+        .main{margin-left:500px;padding:30px;width:100%;box-sizing:border-box;}
+        h2{font-size:26px;color:#2d3748;margin-bottom:20px;}
+        .container{background:#fff;padding:35px;border-radius:12px;box-shadow:0 3px 10px rgba(0,0,0,0.1);max-width:650px;}
+        input,textarea,button{width:100%;padding:14px;border-radius:8px;border:1px solid #ccd1d9;font-size:16px;box-sizing:border-box;margin-bottom:15px;}
+        textarea{height:120px;resize:none;}
+        button{background:#2d6cdf;color:white;border:none;cursor:pointer;font-size:16px;}
+        button:hover{background:#1e4ead;}
+        label{font-size:15px;font-weight:bold;color:#2d3748;margin-bottom:8px;display:block;}
     </style>
 </head>
 <body>
-<div class="container">
+<div class="sidebar">
+    <h3>HRM System</h3>
+    <strong style="padding:0 20px;font-size:13px;color:#718096;">EMPLOYEE SECTION</strong>
+    <a href="/employee/myleaves">📅 My Leaves</a>
+    <a href="/employee/apply" class="active">➕ Apply Leave</a>
+    <strong style="padding:0 20px;font-size:13px;color:#718096;margin-top:20px;display:block;">ADMIN SECTION</strong>
+    <a href="/admin/leaves">📋 All Requests</a>
+    <a href="/logout" style="margin-top:40px;">🚪 Logout</a>
+</div>
+<div class="main">
     <h2>Apply Leave - <span th:text="${username}"></span></h2>
-    <div class="nav-links">
-        <a href="/employee/myleaves">My Leaves</a>
-        <a href="/logout">Logout</a>
-    </div>
-    <div class="card">
+    <div class="container">
         <form th:action="@{/employee/apply}" th:object="${leave}" method="post">
             <label>From Date</label>
             <input type="date" th:field="*{fromDate}" required/>
@@ -33,7 +39,7 @@
             <input type="date" th:field="*{toDate}" required/>
             <label>Reason</label>
             <textarea th:field="*{reason}" placeholder="Enter reason for leave..." required></textarea>
-            <button type="submit">Apply Leave</button>
+            <button type="submit">Submit Leave Request</button>
         </form>
     </div>
 </div>
