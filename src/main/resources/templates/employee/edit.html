@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Leave</title>
+    <style>
+        body{font-family:Arial;background:#eef1f6;margin:0;padding:25px;display:flex;flex-direction:column;align-items:center;}
+        h2{font-size:24px;margin-bottom:20px;width:100%;max-width:600px;}
+        .container{background:#fff;padding:30px;border-radius:12px;width:100%;max-width:600px;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+        label{font-size:16px;margin-bottom:6px;display:block;}
+        input,textarea,button{width:100%;padding:12px;border-radius:8px;border:1px solid #ccd1d9;font-size:16px;margin-bottom:18px;}
+        textarea{height:100px;resize:none;}
+        button{background:#f0ad4e;color:white;border:none;font-size:16px;cursor:pointer;}
+        button:hover{background:#d68e2d;}
+    </style>
+</head>
+<body>
+
+<h2>Edit Leave</h2>
+
+<div class="container">
+    <form th:action="@{/employee/update}" th:object="${leave}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        <label>From Date:</label>
+        <input type="date" name="fromDate" th:value="${#temporals.format(leave.fromDate, 'yyyy-MM-dd')}" required/>
+
+        <label>To Date:</label>
+        <input type="date" name="toDate" th:value="${#temporals.format(leave.toDate, 'yyyy-MM-dd')}" required/>
+
+        <label>Reason:</label>
+        <textarea th:field="*{reason}" required></textarea>
+
+        <button type="submit">Update Leave</button>
+    </form>
+</div>
+
+</body>
+</html>

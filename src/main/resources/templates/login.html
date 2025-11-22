@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <style>
+        body{
+            font-family: Arial;
+            background: linear-gradient(135deg,#e3e8f0,#f7f9fc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:0;
+        }
+        .login-box{
+            width: 380px;
+            background: #fff;
+            padding: 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        h1{
+            margin-bottom: 25px;
+            font-size: 26px;
+            letter-spacing: 0.5px;
+            color:#2d3748;
+        }
+        input, select{
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border:1px solid #c8ccd4;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+        input:focus, select:focus{
+            outline: none;
+            border-color:#2d6cdf;
+            box-shadow:0 0 4px rgba(45,108,223,0.3);
+        }
+        button{
+            width: 100%;
+            padding: 12px;
+            border:none;
+            border-radius:8px;
+            background:#2d6cdf;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+        button:hover{
+            background:#1e4ead;
+        }
+        label{
+            float:left;
+            font-size:14px;
+            margin-bottom:5px;
+            color:#333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h1>Leave Management Service</h1>
+
+    <form th:action="@{/login}" method="post">
+
+        <label>Username</label>
+        <input type="text" name="username" required/>
+
+        <label>Password</label>
+        <input type="password" name="password" required/>
+
+        <label>Select Role</label>
+        <select name="role" required>
+            <option value="employee">Employee</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

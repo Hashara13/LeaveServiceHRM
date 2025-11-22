@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Leaves</title>
+    <style>
+        body{font-family:Arial;background:#eef1f6;margin:0;padding:25px;}
+        h2{font-size:24px;margin-bottom:15px;}
+        a{color:#2d6cdf;font-weight:bold;text-decoration:none;margin-right:10px;}
+        table{width:100%;max-width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+        th{background:#2d3748;color:#fff;padding:14px;font-size:14px;text-align:left;}
+        td{padding:14px;border-bottom:1px solid #e9ecef;font-size:14px;}
+        tr:hover{background:#f7f9fc;}
+        span a{font-size:14px;margin-right:12px;}
+        span a:first-child{color:#28a745;}
+        span a:last-child{color:#dc3545;}
+    </style>
+</head>
+<body>
+
+<h2>My Leaves</h2>
+<div style="margin-bottom:15px;">
+    <a href="/employee/apply">Apply New Leave</a> | <a href="/logout">Logout</a>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Reason</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="l : ${leaves}">
+        <td th:text="${l.id}"></td>
+        <td th:text="${l.fromDate}"></td>
+        <td th:text="${l.toDate}"></td>
+        <td th:text="${l.reason}"></td>
+        <td th:text="${l.status}"></td>
+        <td>
+            <span th:if="${l.status.name() == 'PENDING'}">
+                <a th:href="@{/employee/edit/{id}(id=${l.id})}">Edit</a>
+                <a th:href="@{/employee/delete/{id}(id=${l.id})}" onclick="return confirm('Delete?')">Delete</a>
+            </span>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
