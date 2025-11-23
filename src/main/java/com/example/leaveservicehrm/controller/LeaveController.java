@@ -254,6 +254,22 @@ public class LeaveController {
         changeStatus(id, Leave.LeaveStatus.REJECTED);
         return ResponseEntity.ok(Map.of("message", "Leave Rejected", "id", id));
     }
+    @GetMapping("/api/leave/{id}")
+    @ResponseBody
+    public ResponseEntity<?> apiGetSingleLeave(@PathVariable Long id) {
+
+        Optional<Leave> opt = leaveRepository.findById(id);
+
+        if (opt.isEmpty()) {
+            return ResponseEntity.status(404).body(Map.of(
+                    "error", "Leave Not Found",
+                    "id", id
+            ));
+        }
+
+        return ResponseEntity.ok(opt.get());
+    }
+
     @PutMapping("/api/employee/update/{id}")
     @ResponseBody
     public ResponseEntity<?> apiUpdateLeave(@PathVariable Long id, @RequestBody Leave newData) {
