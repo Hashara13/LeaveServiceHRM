@@ -90,3 +90,6 @@ http://localhost:8080
 
 ## Ready to Use
 Employees can apply leave, and Admin can approve or reject.
+
+## Postman Documentation
+https://documenter.getpostman.com/view/31052814/2sB3dHVD1e
